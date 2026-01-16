@@ -10,8 +10,7 @@ func main() {
 	handler := http.FileServer(http.Dir(dir))
 	http.Handle("/", handler)
 	log.Println("Listening on localhost:8080")
-	err := http.ListenAndServe("localhost:8080", nil)
-	if err != nil {
+	if err := http.ListenAndServe("localhost:8080", nil); err != nil {
 		log.Fatal(err)
 	}
 }
